@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\noutput: rmarkdown::html_vignette\nvignette: >\n  %\\VignetteIndexEntry{Tweaking a Coding Scheme: for Bird Tagging}\n  %\\VignetteEngine{knitr::docco_linear}\n  %\\VignetteEncoding{UTF-8}\n---\n\n# R Markdown with the Docco Linear Style\n\nThis is an example of Markdown vignettes using the [Docco style](http://jashkenas.github.io/docco/).\n\n## Docco\n\nTo use the Docco style for Markdown vignettes in an R package, you need to\n\n- add `*.Rmd` files under the `vignettes` directory\n- add `Suggests: knitr` and `VignetteBuilder: knitr` to the `DESCRIPTION` file\n- specify the vignette engine `\\VignetteEngine{knitr::docco_linear}` in the `Rmd` files (inside HTML comments)\n\nAfter building and installing the package, you can view vignettes via\n\n```r\nbrowseVignettes(package = 'Your_Package')\n```\n\n## Examples\n\nBelow are some code chunks as examples.\n\n```{r hello, results='asis'}\ncat('_hello_ **markdown**!', '\\n')\n```\n\nNormally you do not need any chunk options.\n\n```{r}\n1+1\n10:1\nrnorm(5)^2\nstrsplit('hello, markdown vignettes', '')\n```\n\nFeel free to draw beautiful plots and write math $P(X>x)=\\alpha/2$.\n\n```{r}\nn=300; set.seed(123)\npar(mar=c(4,4,.1,.1))\nplot(rnorm(n), rnorm(n), pch=21, cex=5*runif(n), col='white', bg='gray')\n```\n\n## How does it work\n\nThe **markdown** package (>= v0.6.2) supports custom HTML templates, and the `docco` engine in **knitr** uses a custom template to compile Markdown to HTML:\n\n```{r header, eval=FALSE}\nknit2html(..., markdown.HTML.template = system.file('misc', 'docco-template.html', package='knitr'))\n```\n\nThat is it.\n",
+    "created" : 1507616376599.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2331742018",
+    "id" : "A0C1425A",
+    "lastKnownWriteTime" : 1507619519,
+    "last_content_update" : 1507619519047,
+    "path" : "~/R sandbox/color_code_package/test.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -2,6 +2,11 @@
 Thumbs.db
 ehthumbs.db
 
+#packrat
+packrat
+packrat/*
+packrat/ 
+
 # Folder config file
 Desktop.ini
 

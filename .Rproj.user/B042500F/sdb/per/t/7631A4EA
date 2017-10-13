@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Simple color coding scheme generator\n#'\n#' Creates a simple color coding scheme used to mark and identify individual animals. Even if one marking is removed, the entire code can be reconstructed.\n#'\n#' @param total_length the number of unique positions to be marked on the animal. (This can be thought of as the total number of positions on which color bands or paint marks will be applied.)\n#' @param alphabet an integer representing the 'alphabet size.' This is the number of unique markings (think different paint colors, symbols, or varieties of bands) at your disposal.\n#' @param available.colors an optional list of strings that contains the names of the unique markings which compose the given 'alphabet' (e.g. \"blue\", \"red\", \"yellow\", etc.). If left blank, the mapping can be done at any later time using \\code{\\link{codes_to_colors}}. Additionally, the length of this list must match the 'alphabet size' given above.\n#' @return a dataframe with all the possible unique identities included\n#'\n#' @author Karl W Broman, \\email{kbroman@@biostat.wisc.edu}\n#' @references \\url{http://en.wikipedia.org/wiki/List_of_Crayola_crayon_colors}\n#' @seealso \\code{\\link{brocolors}}\n#' @keywords hplot\n#'\n#' @examples\n#' plot_crayons()\n#'\n#' @export\n#'\n\n\nsimple_code <- function(total_length, alphabet, available.colors = NULL){\n\n  if (missing(alphabet)) {\n    stop(\"Error: you need to enter an 'alphabet size,' e.g. the number of paint colors you have\")\n  }\n  if (missing(total_length)) {\n    stop(\"Error: you need to enter the total length of the ID, e.g. how many color bands or paint drops on each organism\")\n  }\n\n  perms <- rep(list(seq_len(alphabet)),total_length - 1 )\n  df <- as.matrix(expand.grid(perms)) - 1\n  df <- cbind(df,apply(df, 1, function(x) alphabet - (sum(x) %% alphabet)))\n  df[df == alphabet] <- 0\n  df <- split(df, 1:nrow(df))\n  names(df) <- NULL\n  df <- codes_to_colors(df, available.colors)\n  return(df)\n}\n",
+    "created" : 1506104874084.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3338895693",
+    "id" : "7631A4EA",
+    "lastKnownWriteTime" : 1507671106,
+    "last_content_update" : 1507671106068,
+    "path" : "~/R sandbox/color_code_package/rabi/R/simplecodes.R",
+    "project_path" : "R/simplecodes.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
