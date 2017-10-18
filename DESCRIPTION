@@ -1,20 +1,22 @@
 Package: rabi
 Type: Package
-Title: Create Unique Identifying Marking Schemes for Animal Behavior Studies
+Title: Generate Codes to Uniquely and Robustly Identify Individuals for Animal Behavior Studies
 Version: 0.1.0
-Authors@R: c( person("Andrew", "Burchill", "Taylor", role=c("aut","cre"), email="andrew.burchill@asu.edu"), person("Theodore", "P.", "Pavlic", role="ctb"), person("R Core Team","",role=c("ctb")))
+Authors@R: c( person("Andrew", "Burchill", "Taylor", role=c("aut","cre"), email="andrew.burchill@asu.edu"), person("Theodore", "P.", "Pavlic", role="ctb"))
 Author: Andrew T. Burchill
 Maintainer: Andrew T. Burchill <andrew.burchill@asu.edu>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Description: This package facilitates the design and generation of optimal color (or symbol) codes that can be used to mark and identify individual animals. These codes are made such that the IDs are robust to partial erasure: even if parts of the code are lost, the entire identity of the animal can be reconstructed Thus, animal subjects are not confused and no ambiguity is introduced.
+License: GPL-3 + file LICENSE
 LazyData: TRUE
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+Depends:
+	R (>= 3.2.5)
 Imports:
 	numbers,
 	polynom,
 	stringdist
-Suggests: 
+Suggests:
 	knitr, 
-	rmarkdown
-
+	rmarkdown,
+	utils

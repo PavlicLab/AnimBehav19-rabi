@@ -4,15 +4,15 @@
 \alias{brute_IDs}
 \title{Brute force color coding scheme generator}
 \usage{
-brute_IDs(total_length, redundancy, alphabet, num.tries = 10,
+brute_IDs(total.length, redundancy, alphabet, num.tries = 10,
   available.colors = NULL)
 }
 \arguments{
-\item{total_length}{the number of unique positions to be marked on the animal. (This can be thought of as the total number of positions on which color bands or paint marks will be applied.)}
+\item{total.length}{the number of unique positions to be marked on the animal. (This can be thought of as the total number of positions on which color bands or paint marks will be applied.)}
 
 \item{redundancy}{the number of erasures that can occur without disrupting surety of unique identification. This value determines how robust the scheme is to erasures.}
 
-\item{alphabet}{an integer representing the 'alphabet size.' This is the number of unique markings (think different paint colors, symbols, or varieties of bands) at your disposal.Note: unlike the Reed-Solomon inspired function, \code{\link{reed_solomon}}, this function can take non-prime values.}
+\item{alphabet}{an integer representing the 'alphabet size.' This is the number of unique markings (think different paint colors, symbols, or varieties of bands) at your disposal.Note: unlike the Reed-Solomon inspired function, \code{\link{rs_IDs}}, this function can take non-prime values.}
 
 \item{num.tries}{the number of iterations that will be run before choosing the best option. Increasing this number increases the running time.}
 
@@ -24,29 +24,40 @@ a list of unique ID codes that fit the provided parameters.
 If an appropriate argument for \code{available.colors} is provided, each code will be a sequence of strings, otherwise, each code will be a sequence of numeric values.
 }
 \description{
-Generates "color" coding schemes used to mark and identify individual animals. The codes are robust to an arbitrary number of color-slot erasures. This method uses a sloppy, slow, stochastic brute force method.
+Generates "color" coding schemes used to mark and identify individual animals. The codes are robust to an arbitrary number of partial erasures. This method uses a sloppy, very slow, stochastic brute force method.
 }
 \details{
-This function generates the list of all possible unique ID codes given the 'alphabet size' (\code{alphabet}) and the number of unique positions available for marking (\code{total_length}). The list of combinations is then iteratively pruned down until the required robustness has been reached; the \href{https://en.wikipedia.org/wiki/Hamming_distance}{distance} between any two ID codes must greater than the value specified in \code{redundancy}.
+This function generates the list of all possible unique ID codes given the 'alphabet size' (\code{alphabet}) and the number of unique positions available for marking (\code{total.length}). The list of combinations is then iteratively pruned down until the required robustness has been reached; the \href{https://en.wikipedia.org/wiki/Hamming_distance}{distance} between any two ID codes must greater than the value specified in \code{redundancy}.
 
 However, the iterative pruning is done randomly, so it is likely that resulting list of codes does not contain the maximum possible number of robust codes. Thus, the process is repeated multiple times (\code{num.tries}) and the list that contains the largest number of robust codes is kept and returned.
 }
 \note{
-the \code{\link{reed_solomon}} function always generates the maximum number of unique codes per scheme. However, \code{\link{reed_solomon}} suffers from certain limitations that \code{\link{brute_IDs}} does not: it requires \code{alphabet} to be a prime number, \code{total_length} to be less than or equal to \code{alphabet}, etc.
+the \code{\link{rs_IDs}} function always generates the maximum number of unique codes per scheme. However, \code{\link{rs_IDs}} suffers from certain limitations that \code{\link{brute_IDs}} does not: it requires \code{alphabet} to be a prime number, \code{total.length} to be less than or equal to \code{alphabet}, etc.
 }
 \examples{
-plot_crayons()
+total.length <- 6  #we have six positions to mark,
+redundancy <- 2    #we want surety even with two erasures,
+alphabet <- 5      #and we currently have five types of paint in stock
 
-}
-\references{
-\url{http://DOI OF THE PAPER} for the orginal source
+ #This gives a warning because rs_IDs() doesn't
+ #allow 'total.length' to be larger than 'alphabet'
+codes <- rs_IDs(total.length, redundancy, alphabet)
+length(codes)
 
-\url{http://en.wikipedia.org/wiki/List_of_Crayola_crayon_colors}
+ #However, we can do it with brute_IDs() to get more unique IDs
+codes <- brute_IDs(total.length, redundancy, alphabet, num.tries = 1)
+length(codes)
+
+ #Let's make those into human-readable color sequences
+color.names <- c("blue","red","green","pink","yellow-with-a-stripe")
+color.codes <- codes_to_colors(codes, color.names)
+
+
+
 }
 \seealso{
-\code{\link{birdtag}} for an example extension based on leg-banding birds,
+\code{\link{rs_IDs}}, \code{\link{tweaked_IDs}}, \code{\link{simple_IDs}}. Also see the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses.
 }
 \author{
 Andrew Burchill, \email{andrew.burchill@asu.edu}
 }
-\keyword{reed_solomon}

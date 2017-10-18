@@ -2,34 +2,35 @@
 % Please edit documentation in R/howmany.R
 \name{how_many}
 \alias{how_many}
-\title{Help function for choosing ID scheme parameters}
+\title{Assistance with choosing ID scheme parameters}
 \usage{
-how_many(total_length = 5, redundancy = 2, alphabet = 6)
+how_many(total.length = 5, redundancy = 2, alphabet = 6)
 }
 \arguments{
-\item{total_length}{the desired number (or estimation) of unique positions to be marked on the animal. (This can be thought of as the total number of positions on which color bands or paint marks will be applied.)}
+\item{total.length}{the desired number (or estimation) of unique positions to be marked on the animal. (This can be thought of as the total number of positions on which color bands or paint marks will be applied.)}
 
 \item{redundancy}{the desired number (or estimation) of erasures that can occur without disrupting surety of unique identification. This value determines how robust the scheme is to erasures.}
 
 \item{alphabet}{an integer representing the desired (or estimated) 'alphabet size.' This is the number of unique markings (think different paint colors, symbols, or varieties of bands) at your disposal.}
 }
 \description{
-Displays the maximum number of unique and robust IDs possible given various combinations of parameters used in the \code{\link{rabi}} package. Several tables, centered around the supplied inputs or the default values, are printed to help the user choose which set of physical parameters would be most useful in their study. This is based on the equation: \deqn{max\# of IDs = alphabet^{ total\_length - redundancy}}{max # of IDs = alphabet^(total_length - redundancy) }
+Displays the maximum number of unique and robust IDs possible given various combinations of parameters used in the \code{\link{rabi}} package. Several tables, centered around the supplied inputs or the default values, are printed to help the user choose which set of physical parameters would be most useful in their study. This is based on the equation: \deqn{max\# of IDs = alphabet^{ total\_length - redundancy}}{max # of IDs = alphabet^(total.length - redundancy) }
 }
 \note{
-The \code{\link{reed_solomon}} function generates codes that have the maximum number of unique IDs; these are the theoretical values listed in the tables. However, \code{\link{reed_solomon}} has several restrictions on the parameter combinations it can accept. Asterisks ('*') are used in the table to indicate which values are a result of such illegal combinations. Other functions such as \code{\link{brute_IDs}} or \code{\link{simple_code}} can be used generate schemes from those particular parameter combinations, but they may fail to achieve the theoretical maximums listed in the table.
+The \code{\link{rs_IDs}} function generates codes that have the maximum number of unique IDs; these are the theoretical values listed in the tables. However, \code{\link{rs_IDs}} has several restrictions on the parameter combinations it can accept. Asterisks ('*') are used in the table to indicate which values are a result of such illegal combinations. Other functions such as \code{\link{brute_IDs}} or \code{\link{simple_IDs}} can be used generate schemes from those particular parameter combinations, but they may fail to achieve the theoretical maximums listed in the table.
 }
 \examples{
-plot_crayons()
+ #Let's generate some tables to see the number of unique IDs we could get given:
+total.length <- 4  #we have ~4 positions to mark,
+redundancy <- 1    #we're interested in being robust to a single erasure,
+alphabet <- 5      #and we currently have 5 types of color bands in stock
+
+how_many(total.length, redundancy, alphabet)
 
 }
-\references{
-\url{http://DOI OF THE PAPER} for the orginal source
-}
 \seealso{
-\code{\link{birdtag}} for an example extension based on leg-banding birds,
+\code{\link{how_robust}}.
 }
 \author{
 Andrew Burchill, \email{andrew.burchill@asu.edu}
 }
-\keyword{reed_solomon}

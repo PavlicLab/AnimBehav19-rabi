@@ -4,22 +4,25 @@
 \name{rabi}
 \alias{rabi}
 \alias{rabi-package}
-\title{rabi: a package for generating Robust Animal Behavior IDs}
+\alias{rabi-package}
+\title{rabi: a package for generating \strong{R}obust \strong{A}nimal \strong{B}ehavior \strong{I}Ds}
 \description{
-This is a mostly empty packagesss to learn roxygen documentation.
+This package facilitates the design and generation of color (or symbol) codes that can be used to mark and identify individual animals. These codes can be selected such that the IDs are robust to partial erasure: even if parts of the code are lost, the entire identity of the animal can be reconstructed Thus, animal subjects are not confused and no ambiguity is introduced.
 }
 \details{
-Hello allows me to learn how to write documentation in comment blocks
-co-located with code.
-}
-\section{Foo functions}{
+Rigorous study of animal behavior, is often dependent on the researcher's ability to track and maintain the unique identity of individual animals or groups. Most individual animals are not reliably recognized on the intra-specific level. Thus, many methods for applying unique visual markings to animals have been developed and used. Many commonly used methods share a common element: a sequence of colors (or symbols, though for brevity and clarity we will refer to them as just 'colors').
 
-The foo functions ...
+Such color coding methods allow observers to conduct studies from a distance, even through binoculars. Color marking remains simple, cheap, and invaluable for fieldwork situations and human-based tracking. However, many external markers suffer from a lack of permanence: leg bands can be torn off by parrots, spots of dyed fur are often rubbed off, tags on turtle shells can be abraded, etc. The partial loss or visual obstruction of markings can disrupt identification by rendering two or more individuals virtually indistinguishable. Fortunately, careful selection of color coding schemes can affect how robust identification is to partial erasure. Even despite the lack of a rigorous method for generating sequences, researchers often use personal heuristics to select codes that they think have a lower chance of potentially being confused. However much better this may be than blind selection, they are far from optimal.
+
+Drawing from tools found in the engineering field of signal processing , we describe a flexible methodology to create personalized color coding identification schemes that are robust to partial loss or obstruction: even if part of the code is missing, the entire unique sequence of colors can be reconstructed.
+}
+\section{Getting Started and Vignettes}{
+
+See \href{../doc/README.html}{README} for a quick dive into the package.
+
+See the \href{../doc/loosebirdtag.html}{vignette} for demonstrations and additional uses.
 }
 
-\references{
-LINK TO MY PAPER
-}
 \author{
 Andrew Burchill: \email{andrew.burchill@asu.edu}
 }
