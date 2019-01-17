@@ -7,7 +7,7 @@
 exampleGUI()
 }
 \description{
-Launches a (possibly buggy) Shiny app that acts as a graphical user interface for the \code{\link{rs_IDs}} function. It's a bit hacky, so it's performance is not guaranteed.
+Launches a (possibly buggy) Shiny app that acts as a graphical user interface for the \code{\link{rs_IDs}} function. It's a bit hacky, so its performance is not guaranteed.
 }
 \examples{
 \dontrun{
