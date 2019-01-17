@@ -27,6 +27,7 @@
 #'
 #' @export
 #' @importFrom stringdist seq_distmatrix
+#' @importFrom utils capture.output
 
 
 
@@ -49,9 +50,10 @@ codes_to_colors <- function(codes, available.colors = NULL){
         codes <- rapply(codes, function(x) ifelse(x == original.nums[i],available.colors[i], x), how = "replace")
       }
 
-      mapping <- setNames(available.colors, original.nums)
+      mapping <- available.colors
+      names(mapping) <- original.nums
       message("Note: The mapping (see below) that was used to assign color names to numeric values is not saved or assigned to a variable. \n The exact mapping may change with repeated function calls. Depending on your circumstances, you may want to record this now. \n")
-      message(paste0(capture.output(mapping), collapse = "\n"))
+      message(paste0(utils::capture.output(mapping), collapse = "\n"))
     }
   }
   return(codes)

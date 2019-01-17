@@ -4,7 +4,8 @@
 \alias{tweaked_IDs}
 \title{Brute force color coding scheme generator}
 \usage{
-tweaked_IDs(combos, redundancy, num.tries = 10, available.colors = NULL)
+tweaked_IDs(combos, redundancy, num.tries = 10,
+  available.colors = NULL)
 }
 \arguments{
 \item{combos}{a list of numeric sequences or a matrix where each row is a unique sequence. The length of the sequences or the width matrix corresponds to the \code{total.length} variable seen in \code{\link{rs_IDs}}. The numeric elements should ideally be between zero and one less than the alphabet size (\code{0:(alphabet - 1)}}

@@ -34,7 +34,6 @@ Let's say we have 100 ants we need to track and observe: we need to *always* kno
 total.length <- 4  #we have four places to put paint,
 redundancy <- 1    #we want robustness to single erasures,
 alphabet <- 5      #and we currently have five types of paint in stock
-
  #rs_IDs() is one of the functions that can generate codes
 codes <- rabi::rs_IDs(total.length, redundancy, alphabet)
  #prep the output to be displayed in a table

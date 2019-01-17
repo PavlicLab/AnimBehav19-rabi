@@ -54,5 +54,5 @@ how_many <- function(total.length = 5, redundancy = 2, alphabet = 6) {
   a1[a1 == "NA*"] <- NA
 
   print.table(a1)
-  cat("*: This indicates this parameter combination is outside what rs_IDs() accepts as input")
+  cat("*: Asterisk indicates this particular parameter combination is outside what rs_IDs() will accept as an input")
 }

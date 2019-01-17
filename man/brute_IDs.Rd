@@ -37,10 +37,10 @@ the \code{\link{rs_IDs}} function always generates the maximum number of unique 
 \examples{
 total.length <- 6  #we have six positions to mark,
 redundancy <- 2    #we want surety even with two erasures,
-alphabet <- 5      #and we currently have five types of paint in stock
+alphabet <- 4      #and we currently have five types of paint in stock
 
- #This gives a warning because rs_IDs() doesn't
- #allow 'total.length' to be larger than 'alphabet'
+ #This gives a warning because rs_IDs() only accepts
+ #a pretty constrained set of parameters
 codes <- rs_IDs(total.length, redundancy, alphabet)
 length(codes)
 

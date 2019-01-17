@@ -12,7 +12,7 @@
 #' For information on \href{https://en.wikipedia.org/wiki/Erasure_code#Polynomial_oversampling}{polynomial oversampling}.
 #'
 #' @author Andrew Burchill, \email{andrew.burchill@asu.edu}
-#' @seealso \code{\link{brute_IDs}}, \code{\link{tweaked_IDs}}, \code{\link{simple_IDs}}. Also see the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses.
+#' @seealso \code{\link{brute_IDs}}, \code{\link{tweaked_IDs}}, \code{\link{simple_IDs}}. See the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses. Run \code{\link{exampleGUI}} for a more user-friendly Shiny GUI version of the function.
 #'
 #' If an appropriate argument for \code{available.colors} is provided, each code will be a sequence of strings, otherwise, each code will be a sequence of numeric values.
 #'
@@ -37,6 +37,7 @@
 #' @export
 #' @importFrom polynom polynomial
 #' @importFrom numbers isPrime previousPrime
+#' @importFrom stats predict
 
 
 rs_IDs <- function(total.length, redundancy, alphabet, available.colors = NULL) {
@@ -79,7 +80,7 @@ rs_IDs <- function(total.length, redundancy, alphabet, available.colors = NULL) 
   #dynamically creates a polynomial from the permutations such as a + b*x + c*x^2 + d*x^3 ...
   #then evaluates it at x = the column number minus one (0,1,2,3...)
   for (i in seq_len(total.length)) codes[, i] <-
-    apply(combos, 1, function(x) predict(polynomial(x), i - 1) %% alphabet)
+    apply(combos, 1, function(x) stats::predict(polynomial(x), i - 1) %% alphabet)
 
   codes <- split(codes, 1:nrow(codes))
   names(codes) <- NULL

@@ -4,7 +4,6 @@
 \name{rabi}
 \alias{rabi}
 \alias{rabi-package}
-\alias{rabi-package}
 \title{rabi: a package for generating \strong{R}obust \strong{A}nimal \strong{B}ehavior \strong{I}Ds}
 \description{
 This package facilitates the design and generation of color (or symbol) codes that can be used to mark and identify individual animals. These codes can be selected such that the IDs are robust to partial erasure: even if parts of the code are lost, the entire identity of the animal can be reconstructed Thus, animal subjects are not confused and no ambiguity is introduced.
