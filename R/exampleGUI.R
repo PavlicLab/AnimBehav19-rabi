@@ -3,7 +3,7 @@
 #' Launches a (possibly buggy) Shiny app that acts as a graphical user interface for the \code{\link{rs_IDs}} function. It's a bit hacky, so its performance is not guaranteed.
 #'
 #' @author Andrew Burchill, \email{andrew.burchill@asu.edu}
-#' @seealso \code{\link{rs_IDs}}, \href{../doc/loosebirdtag.html}{vignette}.
+#' @seealso \code{\link{rs_IDs}} and the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}}.
 #' @examples
 #' \dontrun{
 #' exampleGUI()  #yeah, just run it.

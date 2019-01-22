@@ -13,6 +13,8 @@
 #'
 #' See the \href{../doc/loosebirdtag.html}{vignette} for demonstrations and additional uses.
 #'
+#' Run \code{\link{exampleGUI}} to use a Shiny-based GUI for creating ID schemes.
+#'
 #' @docType package
 #' @name rabi
 #' @aliases rabi-package

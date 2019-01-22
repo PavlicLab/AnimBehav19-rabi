@@ -3,8 +3,7 @@
 rabi
 ====
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rabi)](https://cran.r-project.org/package=rabi)
-
+<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rabi)](https://cran.r-project.org/package=rabi) -->
 The goal of `rabi` is to facilitate the design and generation of color (or symbol) codes that can be used to mark and identify individual animals (specifically aimed for research projects). These codes can be selected such that the IDs are robust to partial erasure: even if parts of the code are lost, the entire identity of the animal can be reconstructed Thus, animal subjects are not confused and no ambiguity is introduced.
 
 Installation
@@ -16,7 +15,7 @@ You can install `rabi` from CRAN with:
 install.packages("rabi")
 ```
 
-You can also install `rabi` from github with:
+You can also install `rabi` from Github with:
 
 ``` r
 # install.packages("devtools")
@@ -92,7 +91,13 @@ knitr::kable(
 More
 ----
 
-For addtional functions, deeper examples, and such, check out the vignette on designing color band schemes for bird legs: it's chock full of cool stuff.
+For a (possibly buggy) Shiny-based GUI suited for new R users, try running this command.
+
+``` r
+rabi::exampleGUI()
+```
+
+For additional functions, deeper examples, and such, check out the vignette on designing color band schemes for bird legs: it's chock full of cool stuff.
 
 ``` r
 utils::vignette('loosebirdtag',package='rabi')

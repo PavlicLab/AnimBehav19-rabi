@@ -20,6 +20,8 @@ Drawing from tools found in the engineering field of signal processing , we desc
 See \href{../doc/README.html}{README} for a quick dive into the package.
 
 See the \href{../doc/loosebirdtag.html}{vignette} for demonstrations and additional uses.
+
+Run \code{\link{exampleGUI}} to use a Shiny-based GUI for creating ID schemes.
 }
 
 \author{

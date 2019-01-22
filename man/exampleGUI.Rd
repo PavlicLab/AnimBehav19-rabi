@@ -15,7 +15,7 @@ exampleGUI()  #yeah, just run it.
 }
 }
 \seealso{
-\code{\link{rs_IDs}}, \href{../doc/loosebirdtag.html}{vignette}.
+\code{\link{rs_IDs}} and the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}}.
 }
 \author{
 Andrew Burchill, \email{andrew.burchill@asu.edu}

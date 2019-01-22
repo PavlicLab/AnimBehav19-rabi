@@ -1,7 +1,7 @@
 {
     "installOptions" : {
         "installDependencies" : true,
-        "installFromRepository" : true,
-        "libraryPath" : "C:/Users/Andrew Burchill/Documents/R sandbox/color_code_package/rabi/packrat/lib/x86_64-w64-mingw32/3.2.5"
+        "installFromRepository" : false,
+        "libraryPath" : "C:/Users/Andrew Burchill/Documents/R/win-library/3.5"
     }
 }
