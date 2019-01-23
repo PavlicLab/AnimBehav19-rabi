@@ -1,3 +1,5 @@
+^cran-comments\.md$
+^CRAN-RELEASE$
 ^Meta$
 ^doc$
 ^packrat/
@@ -6,4 +8,4 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^README-.*\.png$
-NEWS\.md$
+

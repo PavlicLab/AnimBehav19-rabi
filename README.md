@@ -3,7 +3,8 @@
 rabi
 ====
 
-<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rabi)](https://cran.r-project.org/package=rabi) -->
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rabi)](https://cran.r-project.org/package=rabi)
+
 The goal of `rabi` is to facilitate the design and generation of color (or symbol) codes that can be used to mark and identify individual animals (specifically aimed for research projects). These codes can be selected such that the IDs are robust to partial erasure: even if parts of the code are lost, the entire identity of the animal can be reconstructed Thus, animal subjects are not confused and no ambiguity is introduced.
 
 Installation
