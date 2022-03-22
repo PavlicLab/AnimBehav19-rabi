@@ -1,3 +1,13 @@
+rabi 1.0.2 (2019-12-08)
+=========================
+
+### Bug fixes
+
+  * changed class(.)==* instances to is(.,*) for compatibility
+  * added CITATION reference to published paper in Animal Behaviour journal
+  
+
+
 rabi 1.0.0 (2018-01-17)
 =========================
 

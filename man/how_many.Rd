@@ -28,6 +28,9 @@ alphabet <- 5      #and we currently have 5 types of color bands in stock
 how_many(total.length, redundancy, alphabet)
 
 }
+\references{
+Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
+}
 \seealso{
 \code{\link{how_robust}}.
 }

@@ -9,6 +9,7 @@
 #'
 #'If an appropriate argument for \code{available.colors} is provided, each code will be a sequence of strings, otherwise, each code will be a sequence of numeric values.
 #' @author Andrew Burchill, \email{andrew.burchill@asu.edu}
+#' @references Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 #' @seealso \code{\link{rs_IDs}}, \code{\link{brute_IDs}}.
 #' @examples
 #' total.length <- 4  #we have four positions to mark
@@ -22,6 +23,7 @@
 #' simple_IDs(total.length, alphabet, available.colors = color.names)
 #'
 #' @export
+#' @importFrom methods is
 #'
 
 
@@ -41,6 +43,6 @@ simple_IDs <- function(total.length, alphabet, available.colors = NULL){
   df <- split(df, 1:nrow(df))
   names(df) <- NULL
   df <- codes_to_colors(df, available.colors)
-  if (class(df[[1]]) == "numeric") message(paste0("Each ID sequence sums to a multiple of ", alphabet, "."))
+  if (is(df[[1]],"numeric")) message(paste0("Each ID sequence sums to a multiple of ", alphabet, "."))
   return(df)
 }

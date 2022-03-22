@@ -21,6 +21,7 @@
 #' @note  the \code{\link{rs_IDs}} function always generates the maximum number of unique codes per scheme. However, \code{\link{rs_IDs}} suffers from certain limitations that \code{\link{brute_IDs}} does not: it requires \code{alphabet} to be a prime number, \code{total.length} to be less than or equal to \code{alphabet}, etc.
 #'
 #' @author Andrew Burchill, \email{andrew.burchill@asu.edu}
+#' @references Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 #' @seealso \code{\link{rs_IDs}}, \code{\link{tweaked_IDs}}, \code{\link{simple_IDs}}. Also see the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses.
 #'
 #' @examples
@@ -45,6 +46,7 @@
 #'
 #' @export
 #' @importFrom stringdist seq_distmatrix
+#' @importFrom methods is
 
 brute_IDs <- function(total.length, redundancy, alphabet, num.tries = 10, available.colors = NULL) {
 
@@ -60,7 +62,7 @@ brute_IDs <- function(total.length, redundancy, alphabet, num.tries = 10, availa
   if (redundancy >= total.length || redundancy == 0) {
     stop("Error: the code must be robust to at least one erasure. It also cannot be robust to a number of positions equal to or greater than the total length.")
   }
-  if (class(num.tries) != "numeric") {
+  if (!is(num.tries, "numeric")) {
     stop(paste0("Error: the variable 'num.tries' must be of the class 'numeric,' not '", class(num.tries),".'"))
   }
 

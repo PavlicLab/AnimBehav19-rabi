@@ -8,6 +8,7 @@
 #'
 #' @return a list of unique, named codes that fit the provided parameters.
 #' @author Andrew Burchill, \email{andrew.burchill@asu.edu}
+#' @references Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 #'
 #' @examples
 #' total.length <- 3  #we have three positions to mark,
@@ -28,15 +29,15 @@
 #' @export
 #' @importFrom stringdist seq_distmatrix
 #' @importFrom utils capture.output
-
+#' @importFrom methods is
 
 
 codes_to_colors <- function(codes, available.colors = NULL){
 
-  if (class(codes) == "matrix") {
+  if (is(codes,"matrix")) {
     codes <- split(codes, 1:nrow(codes))
     names(codes) <- NULL
-  } else if (class(codes) != "list") {
+  } else if (!is(codes, "list")) {
     stop("Error: the variable 'codes' must be either a list of numeric sequences or a matrix, where each row is a unique sequence. See the examples for a better idea.")
   }
 

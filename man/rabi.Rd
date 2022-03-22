@@ -13,7 +13,7 @@ Rigorous study of animal behavior, is often dependent on the researcher's abilit
 
 Such color coding methods allow observers to conduct studies from a distance, even through binoculars. Color marking remains simple, cheap, and invaluable for fieldwork situations and human-based tracking. However, many external markers suffer from a lack of permanence: leg bands can be torn off by parrots, spots of dyed fur are often rubbed off, tags on turtle shells can be abraded, etc. The partial loss or visual obstruction of markings can disrupt identification by rendering two or more individuals virtually indistinguishable. Fortunately, careful selection of color coding schemes can affect how robust identification is to partial erasure. Even despite the lack of a rigorous method for generating sequences, researchers often use personal heuristics to select codes that they think have a lower chance of potentially being confused. However much better this may be than blind selection, they are far from optimal.
 
-Drawing from tools found in the engineering field of signal processing , we describe a flexible methodology to create personalized color coding identification schemes that are robust to partial loss or obstruction: even if part of the code is missing, the entire unique sequence of colors can be reconstructed.
+   Drawing from tools found in the engineering field of signal processing , we describe a flexible methodology to create personalized color coding identification schemes that are robust to partial loss or obstruction: even if part of the code is missing, the entire unique sequence of colors can be reconstructed.
 }
 \section{Getting Started and Vignettes}{
 
@@ -24,6 +24,9 @@ See the \href{../doc/loosebirdtag.html}{vignette} for demonstrations and additio
 Run \code{\link{exampleGUI}} to use a Shiny-based GUI for creating ID schemes.
 }
 
+\references{
+Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
+}
 \author{
 Andrew Burchill: \email{andrew.burchill@asu.edu}
 }

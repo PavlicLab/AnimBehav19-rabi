@@ -12,6 +12,7 @@
 #'
 #'  For information on \href{https://en.wikipedia.org/wiki/Erasure_code}{erasure coding}.
 #'
+#'    Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 #' @examples
 #'  #Let's generate some unique IDs given:
 #' total.length <- 4  #we have four positions to mark,
@@ -26,16 +27,16 @@
 #'
 #' @export
 #' @importFrom stringdist seq_distmatrix
-#'
+#' @importFrom methods is
 
 
 how_robust <- function(codes) {
-  if (class(codes) == "matrix") {
+  if (is(codes, "matrix")) {
     codes <- split(codes, 1:nrow(codes))
     names(codes) <- NULL
-  } else if (class(codes) != "list") {
+  } else if (!is(codes,"list")) {
     stop("Error: the variable 'codes' must be either a list of numeric sequences or a matrix, where each row is a unique sequence.")
-  } else if (class(codes[[1]]) != "numeric") {
+  } else if (!is(codes[[1]],"numeric")) {
     stop("Error: the variable 'codes' must be either a list of numeric sequences or a matrix, where each row is a unique sequence.")
   }
 
@@ -43,6 +44,6 @@ how_robust <- function(codes) {
   hams <- as.list(hams)
   try(hams$'0' <- hams$'0' - length(codes), silent = TRUE)
   try(if (hams$'0' == 0) hams$'0' <- NULL, silent = TRUE)
-  names(hams) <- paste0("dist.",names(hams))
+  names(hams) <- paste0("Pairs w/ Hamming dist. ",names(hams))
   return(unlist(hams))
 }

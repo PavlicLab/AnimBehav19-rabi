@@ -1,13 +1,13 @@
 Package: rabi
 Type: Package
 Title: Generate Codes to Uniquely and Robustly Identify Individuals for Animal Behavior Studies
-Version: 1.0.0
-Authors@R: c( person(given = c("Andrew", "Taylor"), family = "Burchill", role = c("aut", "cre"), email = "andrew.burchill@asu.edu"), person(given = c("Theodore", "P."), family = "Pavlic", role = "ctb"))
+Version: 1.0.2
+Authors@R: c( person(given = c("Andrew", "Taylor"), family = "Burchill", role = c("aut", "cre"), email = "andrew.burchill@asu.edu", comment = c(ORCID = "0000-0002-4197-6689")), person(given = c("Theodore", "P."), family = "Pavlic", role = "ctb", comment = c(ORCID = "0000-0002-7073-6932")))
 Description: Facilitates the design and generation of optimal color (or symbol) codes that can be used to mark and identify individual animals. These codes are made such that the IDs are robust to partial erasure: even if sections of the code are lost, the entire identity of the animal can be reconstructed. Thus, animal subjects are not confused and no ambiguity is introduced.
 License: GPL-3
 LazyData: TRUE
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Depends:
 	R (>= 3.2.5)
 Imports:
@@ -16,7 +16,8 @@ Imports:
 	shiny,
 	stringdist,
 	stats,
-	utils
+	utils,
+	methods
 Suggests:
 	knitr, 
 	rmarkdown

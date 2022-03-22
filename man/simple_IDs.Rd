@@ -33,6 +33,9 @@ color.names <- c("blue","red","green","pink","cyan")
 simple_IDs(total.length, alphabet, available.colors = color.names)
 
 }
+\references{
+Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
+}
 \seealso{
 \code{\link{rs_IDs}}, \code{\link{brute_IDs}}.
 }

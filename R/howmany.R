@@ -9,6 +9,7 @@
 #' @note The \code{\link{rs_IDs}} function generates codes that have the maximum number of unique IDs; these are the theoretical values listed in the tables. However, \code{\link{rs_IDs}} has several restrictions on the parameter combinations it can accept. Asterisks ('*') are used in the table to indicate which values are a result of such illegal combinations. Other functions such as \code{\link{brute_IDs}} or \code{\link{simple_IDs}} can be used generate schemes from those particular parameter combinations, but they may fail to achieve the theoretical maximums listed in the table.
 #'
 #' @author Andrew Burchill, \email{andrew.burchill@asu.edu}
+#' @references Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 #' @seealso \code{\link{how_robust}}.
 #'
 #' @examples
@@ -20,8 +21,7 @@
 #' how_many(total.length, redundancy, alphabet)
 #'
 #' @export
-#'
-#'
+#' @importFrom methods is
 
 how_many <- function(total.length = 5, redundancy = 2, alphabet = 6) {
 

@@ -2,10 +2,9 @@
 % Please edit documentation in R/tweaker.R
 \name{tweaked_IDs}
 \alias{tweaked_IDs}
-\title{Brute force color coding scheme generator}
+\title{Tweakable brute force color coding scheme generator}
 \usage{
-tweaked_IDs(combos, redundancy, num.tries = 10,
-  available.colors = NULL)
+tweaked_IDs(combos, redundancy, num.tries = 10, available.colors = NULL)
 }
 \arguments{
 \item{combos}{a list of numeric sequences or a matrix where each row is a unique sequence. The length of the sequences or the width matrix corresponds to the \code{total.length} variable seen in \code{\link{rs_IDs}}. The numeric elements should ideally be between zero and one less than the alphabet size (\code{0:(alphabet - 1)}}
@@ -47,10 +46,15 @@ combos <- as.matrix(expand.grid(perms)) - 1
   #We want the first position to only be odd numbers
   #and the second position to only be even.
 combos <- combos[which(odd(combos[,1]) & !odd(combos[,2])), ]
+\dontrun{
 codes <- tweaked_IDs(combos, redundancy, num.tries = 1)
 
-print(paste0("The 'tweaked' list contains ", length(codes), " unique IDs."))
 
+print(paste0("The 'tweaked' list contains ", length(codes), " unique IDs."))
+}
+}
+\references{
+Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 }
 \seealso{
 \code{\link{brute_IDs}}. Also see the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses.

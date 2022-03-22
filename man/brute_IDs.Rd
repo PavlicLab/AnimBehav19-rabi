@@ -4,8 +4,13 @@
 \alias{brute_IDs}
 \title{Brute force color coding scheme generator}
 \usage{
-brute_IDs(total.length, redundancy, alphabet, num.tries = 10,
-  available.colors = NULL)
+brute_IDs(
+  total.length,
+  redundancy,
+  alphabet,
+  num.tries = 10,
+  available.colors = NULL
+)
 }
 \arguments{
 \item{total.length}{the number of unique positions to be marked on the animal. (This can be thought of as the total number of positions on which color bands or paint marks will be applied.)}
@@ -54,6 +59,9 @@ color.codes <- codes_to_colors(codes, color.names)
 
 
 
+}
+\references{
+Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 }
 \seealso{
 \code{\link{rs_IDs}}, \code{\link{tweaked_IDs}}, \code{\link{simple_IDs}}. Also see the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses.

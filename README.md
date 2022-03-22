@@ -1,14 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-rabi
-====
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rabi)](https://cran.r-project.org/package=rabi)
+# rabi
 
-The goal of `rabi` is to facilitate the design and generation of color (or symbol) codes that can be used to mark and identify individual animals (specifically aimed for research projects). These codes can be selected such that the IDs are robust to partial erasure: even if parts of the code are lost, the entire identity of the animal can be reconstructed Thus, animal subjects are not confused and no ambiguity is introduced.
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rabi)](https://cran.r-project.org/package=rabi)
 
-Installation
-------------
+The goal of `rabi` is to facilitate the design and generation of color
+(or symbol) codes that can be used to mark and identify individual
+animals (specifically aimed for research projects). These codes can be
+selected such that the IDs are robust to partial erasure: even if parts
+of the code are lost, the entire identity of the animal can be
+reconstructed Thus, animal subjects are not confused and no ambiguity is
+introduced.
+
+## Installation
 
 You can install `rabi` from CRAN with:
 
@@ -23,12 +28,24 @@ You can also install `rabi` from Github with:
 devtools::install_github("andburch/rabi")
 ```
 
-Example
--------
+## Example
 
-Although these methods and principles are applicable across taxa and situations, we will demonstrate their usefulness on ants as an illustration. A well-thought-out identification system is important in social insect research because colonies are often composed of hundreds to thousands of virtually identical workers. Additionally, their tendency to groom themselves (and each other) creates a situation where markings are especially susceptible to becoming detached and disrupting identification.
+Although these methods and principles are applicable across taxa and
+situations, we will demonstrate their usefulness on ants as an
+illustration. A well-thought-out identification system is important in
+social insect research because colonies are often composed of hundreds
+to thousands of virtually identical workers. Additionally, their
+tendency to groom themselves (and each other) creates a situation where
+markings are especially susceptible to becoming detached and disrupting
+identification.
 
-Let's say we have 100 ants we need to track and observe: we need to *always* know their individual identities. We have five colors of paint which we will apply as drops to locations on their backs. Their heads and thoraxes will each receive a colored drop and then they will get two drops on their abdomens (i.e. gasters). We want a coding scheme that will still perfectly identify the ants even if they *all* lose one of these marks.
+Let’s say we have 100 ants we need to track and observe: we need to
+*always* know their individual identities. We have five colors of paint
+which we will apply as drops to locations on their backs. Their heads
+and thoraxes will each receive a colored drop and then they will get two
+drops on their abdomens (i.e. gasters). We want a coding scheme that
+will still perfectly identify the ants even if they *all* lose one of
+these marks.
 
 ``` r
 total.length <- 4  #we have four places to put paint,
@@ -45,19 +62,22 @@ knitr::kable(
 ```
 
 | Head | Thorax | R. Abdomen | L. Abdomen |
-|:----:|:------:|:----------:|:----------:|
-|   0  |    0   |      0     |      0     |
-|   1  |    1   |      1     |      1     |
-|   2  |    2   |      2     |      2     |
-|   3  |    3   |      3     |      3     |
-|   4  |    4   |      4     |      4     |
-|   0  |    1   |      2     |      3     |
-|   1  |    2   |      3     |      4     |
-|   2  |    3   |      4     |      0     |
-|   3  |    4   |      0     |      1     |
-|   4  |    0   |      1     |      2     |
+| :--: | :----: | :--------: | :--------: |
+|  0   |   0    |     0      |     0      |
+|  1   |   1    |     1      |     1      |
+|  2   |   2    |     2      |     2      |
+|  3   |   3    |     3      |     3      |
+|  4   |   4    |     4      |     4      |
+|  0   |   1    |     2      |     3      |
+|  1   |   2    |     3      |     4      |
+|  2   |   3    |     4      |     0      |
+|  3   |   4    |     0      |     1      |
+|  4   |   0    |     1      |     2      |
 
-We can easily add our paint color names to the output as well. (However, I would personally save the mapping for future reference, etc.)
+ID sequences for ants
+
+We can easily add our paint color names to the output as well. (However,
+I would personally save the mapping for future reference, etc.)
 
 ``` r
 paint.names <- c("red","light blue", "greenish", "off-white", "yellow")
@@ -71,17 +91,20 @@ knitr::kable(
 ```
 
 |    Head    |   Thorax   | R. Abdomen | L. Abdomen |
-|:----------:|:----------:|:----------:|:----------:|
-|     red    |     red    |     red    |     red    |
+| :--------: | :--------: | :--------: | :--------: |
+|    red     |    red     |    red     |    red     |
 | light blue | light blue | light blue | light blue |
 |  greenish  |  greenish  |  greenish  |  greenish  |
-|  off-white |  off-white |  off-white |  off-white |
+| off-white  | off-white  | off-white  | off-white  |
 |   yellow   |   yellow   |   yellow   |   yellow   |
-|     red    | light blue |  greenish  |  off-white |
-| light blue |  greenish  |  off-white |   yellow   |
-|  greenish  |  off-white |   yellow   |     red    |
-|  off-white |   yellow   |     red    | light blue |
-|   yellow   |     red    | light blue |  greenish  |
+|    red     | light blue |  greenish  | off-white  |
+| light blue |  greenish  | off-white  |   yellow   |
+|  greenish  | off-white  |   yellow   |    red     |
+| off-white  |   yellow   |    red     | light blue |
+|   yellow   |    red     | light blue |  greenish  |
+
+ID paint sequences for
+    ants
 
     #> Note: The mapping (see below) that was used to assign color names to numeric values is not saved or assigned to a variable. 
     #>  The exact mapping may change with repeated function calls. Depending on your circumstances, you may want to record this now.
@@ -89,17 +112,24 @@ knitr::kable(
     #>            0            1            2            3            4 
     #>        "red" "light blue"   "greenish"  "off-white"     "yellow"
 
-More
-----
-
-For a (possibly buggy) Shiny-based GUI suited for new R users, try running this command.
+\#\#More For a (possibly buggy) Shiny-based GUI suited for new R users,
+try running this command.
 
 ``` r
 rabi::exampleGUI()
 ```
 
-For additional functions, deeper examples, and such, check out the vignette on designing color band schemes for bird legs: it's chock full of cool stuff.
+For additional functions, deeper examples, and such, check out the
+vignette on designing color band schemes for bird legs: it’s chock full
+of cool stuff.
 
 ``` r
-utils::vignette('loosebirdtag',package='rabi')
+utils::vignette('loosebirdtag', package='rabi')
 ```
+
+Lastly, check out our journal article on this subject:
+
+> Burchill, A. T., & Pavlic, T. P. (2019). Dude, where’s my mark?
+> Creating robust animal identification schemes informed by
+> communication theory. *Animal Behaviour*, 154, 203-208.
+> [doi:10.1016/j.anbehav.2019.05.013](https://doi.org/10.1016/j.anbehav.2019.05.013)

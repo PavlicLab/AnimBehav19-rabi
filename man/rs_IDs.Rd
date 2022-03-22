@@ -43,6 +43,8 @@ codes_to_colors(codes, color.names)
 \references{
 For information on \href{https://en.wikipedia.org/wiki/Reed-Solomon_error_correction}{Reed-Solomon error correction}.
 For information on \href{https://en.wikipedia.org/wiki/Erasure_code#Polynomial_oversampling}{polynomial oversampling}.
+
+Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 }
 \seealso{
 \code{\link{brute_IDs}}, \code{\link{tweaked_IDs}}, \code{\link{simple_IDs}}. See the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses. Run \code{\link{exampleGUI}} for a more user-friendly Shiny GUI version of the function.

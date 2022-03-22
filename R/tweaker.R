@@ -1,4 +1,4 @@
-#' Brute force color coding scheme generator
+#' Tweakable brute force color coding scheme generator
 #'
 #' Generates "color" coding schemes used to mark and identify individual animals, given a list of numeric sequences. The codes are robust to an arbitrary number of partial code erasures. This method uses a sloppy, slow, stochastic brute force method.
 #'
@@ -21,6 +21,7 @@
 #'
 #'
 #' @author Andrew Burchill, \email{andrew.burchill@asu.edu}
+#' @references Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 #' @seealso \code{\link{brute_IDs}}. Also see the vignette \href{../doc/loosebirdtag.html}{\code{loosebirdtag}} for demonstrations and additional uses.
 #'
 #' @examples
@@ -38,12 +39,15 @@
 #'   #We want the first position to only be odd numbers
 #'   #and the second position to only be even.
 #' combos <- combos[which(odd(combos[,1]) & !odd(combos[,2])), ]
+#' \dontrun{
 #' codes <- tweaked_IDs(combos, redundancy, num.tries = 1)
 #'
-#' print(paste0("The 'tweaked' list contains ", length(codes), " unique IDs."))
 #'
+#' print(paste0("The 'tweaked' list contains ", length(codes), " unique IDs."))
+#' }
 #' @export
 #' @importFrom stringdist seq_distmatrix
+#' @importFrom methods is
 
 
 tweaked_IDs <- function(combos, redundancy, num.tries = 10, available.colors = NULL) {
@@ -51,13 +55,13 @@ tweaked_IDs <- function(combos, redundancy, num.tries = 10, available.colors = N
     if (missing(redundancy)) {
       stop("Error: you need specify to how many erasure events the IDs should be robust. Note, an increase in robustness requires an increase in the total length of the ID. ")
     }
-    if (class(num.tries) != "numeric") {
-      stop(paste0("Error: the variable 'num.tries' must be of the class 'numeric,' not '", class(num.tries),".'"))
+    if (!is(num.tries, "numeric")) {
+      stop(paste0("Error: the variable 'num.tries' must be of the class 'numeric,' not '", class(num.tries)[1],".'"))
     }
-    if (class(combos) == "matrix") {
+    if (is(combos,"matrix")) {
       combos <- split(combos, 1:nrow(combos))
       names(combos) <- NULL
-    } else if (class(combos) != "list") {
+    } else if (!is(combos,"list")) {
       stop("Error: the variable 'combos' must be either a list of numeric sequences or a matrix, where each row is a unique sequence. See the examples for a better idea.")
     }
   }
@@ -71,13 +75,13 @@ tweaked_IDs <- function(combos, redundancy, num.tries = 10, available.colors = N
     new.combs <- combo.list[x]
     names(new.combs) <- NULL
     #remove everything too similar to the chosen sequence from the old list
-    combo.list <- combo.list[seq_distmatrix(combo.list, new.combs, method = "hamming")[, length(new.combs)] > redundancy]
+    combo.list <- combo.list[stringdist::seq_distmatrix(combo.list, new.combs, method = "hamming")[, length(new.combs)] > redundancy]
     names(combo.list) <- 1:length(combo.list)
     #do this again and again until everything is removed
     while (length(combo.list) > 0) {
       x <- sample(1:length(combo.list), 1)
       new.combs[length(new.combs) + 1] <- (combo.list[x])
-      combo.list <- combo.list[seq_distmatrix(combo.list, new.combs, method = "hamming")[, length(new.combs)] > redundancy]
+      combo.list <- combo.list[stringdist::seq_distmatrix(combo.list, new.combs, method = "hamming")[, length(new.combs)] > redundancy]
       if (length(combo.list) != 0) {
         names(combo.list) <- 1:length(combo.list)
       }

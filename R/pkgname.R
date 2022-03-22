@@ -15,6 +15,7 @@
 #'
 #' Run \code{\link{exampleGUI}} to use a Shiny-based GUI for creating ID schemes.
 #'
+#' @references Burchill, A. T., & Pavlic, T. P. (2019). Dude, where's my mark? Creating robust animal identification schemes informed by communication theory. \emph{Animal Behaviour}, 154, 203-208. \href{https://doi.org/10.1016/j.anbehav.2019.05.013}{doi:10.1016/j.anbehav.2019.05.013}
 #' @docType package
 #' @name rabi
 #' @aliases rabi-package
