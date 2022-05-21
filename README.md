@@ -112,12 +112,17 @@ ID paint sequences for
     #>            0            1            2            3            4 
     #>        "red" "light blue"   "greenish"  "off-white"     "yellow"
 
-\#\#More For a (possibly buggy) Shiny-based GUI suited for new R users,
+## GUI
+
+For a (possibly buggy) Shiny-based GUI suited for new R users, 
 try running this command.
 
 ``` r
 rabi::exampleGUI()
 ```
+
+I have an online version hosted with shinyapps [here too](https://ants-at-asu.shinyapps.io/gui-example/), but that might be even buggier, I'm never sure.
+
 
 For additional functions, deeper examples, and such, check out the
 vignette on designing color band schemes for bird legs: it’s chock full
